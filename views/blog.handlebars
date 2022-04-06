@@ -1,0 +1,14 @@
+<div class="container">
+    <h2>{{blog.name}}</h2>
+    <p>{{blog.descrition}}</p>
+    <p>Posted by {{user.name}} on {{format_date date_created}}</p>
+    <p></p>
+     <form id="comment">
+    <textarea  id="comment-box" cols="30" rows="10">
+    </textarea>
+    <button type="submit" id="comment">Comment</button>
+    </form>
+</div>
+<script src="/js/profile.js"></script>
+<script src="/js/edit.js"></script>
+<script src="/js/logout"></script>
