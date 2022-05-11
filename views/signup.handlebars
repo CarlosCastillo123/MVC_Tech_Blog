@@ -1,18 +1,19 @@
-<div class="container">
-        <form class="signup-form">
-            <div>
-            <label for="signup-name">Name</label>
-             <input class="form-input" type="text" id="name-signup" name="signup-name"/>
-             </div>
-             <div>
-            <label for="signup-email">Email</label>
-              <input class="form-input" type="text" name="signup-email" id="email-signup"/>
-            </div>
-            <div>
-            <label for="">Password</label>
-             <input class="form-input" type="password" id="password-signup" name="password-signup"/>
-           </div>
-            <button class="btn btn-primary" type="submit">signup</button>
-        </form>
+<div>
+  <form id="signup-form">
+    <div class="mb-3">
+      <label class="form-label" for="signup-name">Name</label>
+      <input class="form-control" type="text" id="name-signup" name="signup-name" />
+    </div>
+    <div>
+      <label class="form-label" for="signup-email">Email</label>
+      <input class="form-control" type="text" name="email-signup" id="email-signup" />
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="password-signup">Password</label>
+      <input class="form-control" type="password" id="password-signup" name="password-signup" />
+    </div>
+    <button id="submit-button" class="btn btn-primary" type="submit">Signup</button>
+  </form>
 </div>
+
 <script src="/js/signup.js"></script>

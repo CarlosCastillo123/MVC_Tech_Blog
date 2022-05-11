@@ -1,15 +1,19 @@
 <div class="container">
-    <div class="form">
-        <form class="edit-form">
-            <label for="title"></label>
-            <input name="title" type="text" value="{{blog.title}}">
-             <label for="description"></label>
-            <textarea value="{{blog.description}}" name="description" id="blog-description" cols="30" rows="10"></textarea>
-            <button id="submit-edit-form" type="submit">Update</button>
+    
+        <form id="edit-form" >
+            <div class="mb-3">
+                <label class="form-label" for="title">Edit title</label>
+                <input id="blog-title" class="form-control" name="title"  value="{{title}}" type="text" >
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="description">Edit description</label>
+                <textarea id="blog-description" class="form-control" type="text"  name="description"  cols="20"
+                    rows="4">{{description}}</textarea>
+            </div>
+            <button  class="btn btn-primary" id="update-button" type="submit">Update</button>
         </form>
-    </div>
-
+   
 </div>
-<script src="/js/profile.js"></script>
+
 <script src="/js/edit.js"></script>
 <script src="/js/logout.js"></script>

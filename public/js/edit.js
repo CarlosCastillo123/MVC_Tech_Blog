@@ -1,13 +1,15 @@
 const editFormHandler = async (event) => {
-    if (event.target.hasAttribute('data-id')) {
-        const id = event.target.getAttribute('data-id')
-        const name = document.getElementById('blog-name')
-        const description = document.getElementById('blog-description')
-        const response = await fetch(`/api/post/${id}`, {
+  
+     const id = window.location.toString().split('/')[
+        window.location.toString().split('/').length - 1
+      ];
+        const title = document.getElementById('blog-title').value
+        const description = document.getElementById('blog-description').value
+        const response = await fetch(`/api/blogs/edit/${id}`, {
             method: 'PUT',
             body: JSON.stringify({
-                name,
-                description
+                title,
+                description,
             }),
             headers: {
                 'Content-Type': 'application/json',
@@ -18,7 +20,8 @@ const editFormHandler = async (event) => {
         } else {
             alert('Failed to edit')
         }
-    }
+    
 }
 
-document.querySelector('.edit-form').addEventListener('click', editButtonHandler)
+const editButton = document.getElementById('edit-form') 
+editButton.addEventListener('submit', editFormHandler)

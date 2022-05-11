@@ -1,16 +1,19 @@
 const commentHandler = async (event) => {
     event.preventDefault();
-    const comment = document.getElementById('comment-box').value.trim()
+    const description = document.getElementById('comment-box').value.trim()
 
-    const response = await fetch('/api/blogs/comment', {
+    const id = window.location.toString().split('/')[
+        window.location.toString().split('/').length - 1
+      ];
+    const response = await fetch('/api/comments', {
         method: 'POST',
-        body: JSON.stringify({ comment }),
+        body: JSON.stringify({ description, blog_id: id }),
         headers: { 'Content-Type': 'application/json' },
     });
     if (response.ok) {
-        document.location.replace('/all-blog')
+        document.location.replace('/')
     } else {
         alert(response.statusText)
     }
 }
-document.getElementById('comment').addEventListener('click', commentHandler)
+document.getElementById('comment-form').addEventListener('submit', commentHandler)

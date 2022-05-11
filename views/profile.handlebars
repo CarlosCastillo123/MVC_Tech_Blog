@@ -1,39 +1,58 @@
 <div class="row">
     <div class="container">
         <h2>
-            {{name}}
+            Your Blogs
         </h2>
 
     </div>
     <div class="container">
         <h3>
-            Create blog:
+            Create blog
         </h3>
-        <form id="new-blog" class="new-blog-form"></form>
-        <label for="blog-name">Blog name:</label>
-        <label for="blog-decription">Blog description:</label>
-        <input type="text" id="blog-description" name="blog-description">
-        <input type="text" id="blog-name" name="blog-name">
-        <button type="submit" class="btn btn-primary">Create</button>
+        <form id="new-blog">
+            <div class="mb-3">
+                <label class="form-label" for="blog-name">Blog name</label>
+                <input class="form-control" type="text" id="blog-name" name="blog-name">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="blog-description">Blog Description</label>
+                <input type="text" class="form-control"   id="blog-description" name="blog-description">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Create</button>
         </form>
     </div>
 </div>
-<div>
-{{#if blogs.length}}
-<h3>
-    Current Posts:
-</h3>
-{{#each blogs as |blog|}}
-<div class="container">
-<h3>
-<a href="/blog/{{blog.id}}">{{blog.name}}</a>
-</h3>
-<button id="delete-blog" data-id="{{blog.id}}">Delete</button>
-<button href="/edit-blog" data-id="{{blog.id}}">Update post</button>
+<div class="d-flex justify-content-center">
 
+    <h3>
+        Current Posts:
+    </h3>
+</div>
+{{#each blogs as |blog|}}
+
+<div class="card text-center" style="width 18rem;">
+    <div class="card-body bg-light">
+        <h2 class="card-title text-center">
+            <a href="/blogs/{{id}}">{{blog.title}}</a>
+        </h2>
+        <p class="card-text">
+            {{blog.description}}
+        </p>
+     <div>
+        
+    </div>  
+        <footer>
+         <p class="d-flex justify-content-end">
+            Posted on {{format_date date_created}}
+        </p>    
+        <button class="btn btn-primary" id="delete-blog" data-id="{{blog.id}}">Delete</button>
+        <button class="btn btn-primary" id="edit"> <a style="text-decoration:none; color:white;" href="/edit/{{blog.id}}"> Update post</a> </button>
+        </footer>
+    </div>
 </div>
 {{/each}}
-{{#if}}
-</div>
+
+
 
 <script src="/js/profile.js"></script>
